@@ -1,0 +1,67 @@
+﻿@model List<Site.Models.Pessoa>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Visitante</h2>
+
+<p>@Html.ActionLink("Novo Visitante", "Novo", "Visitante", null, new { Class = @"btn btn-success" })</p>
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">@ViewBag.SubTitulo</div>
+    <div class="panel-body">
+        <!-- Table -->
+        <table id="tblVisitantes" class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th class="col-md-1">Id</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Empresa</th>
+                    <th>Cargo</th>
+                    <th>Telefone</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@Html.ActionLink(item.Nome, "Detalhes", new { Id = item.Id })</td>
+                        <td class="cpf">@item.CPF</td>
+                        <td>@item.Empresa</td>
+                        <td>@item.Cargo</td>
+                        <td>@item.Celular</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/dataTables.bootstrap.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tblVisitantes').dataTable({
+                "oLanguage": {
+                    "sInfo": "Total de _TOTAL_ registros encontrados (_START_ à _END_).",
+                    "sInfoEmpty": "Nenhum registro encontrado.",
+                    "sInfoFiltered": " - filtro de _MAX_ registros.",
+                    "sSearch": "Buscar: ",
+                    "sZeroRecords": "Nenhum registro encontrado.",
+                    "sLengthMenu": "Exibir: _MENU_"
+                }
+            });
+
+            $('#tblVisitantes_wrapper .col-sm-6').eq(0).remove();
+            $('.cpf').mask('000.000.000-00');
+
+        });
+    </script>
+}
+

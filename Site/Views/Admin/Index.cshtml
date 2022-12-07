@@ -1,0 +1,134 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Dashboard</h2>
+
+<div class="row">
+    <div id="chart_Visitas" class="col-lg-12"></div>
+</div>
+<div class="row">
+    <div id="chart_Cadastrados" class="col-lg-6"></div>
+    <div id="chart_Cadastrados2" class="col-lg-6"></div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+    <script type="text/javascript">
+        google.load("visualization", "1", {
+            packages: ["corechart"]
+        });
+        google.setOnLoadCallback(graficoCadastros);
+        google.setOnLoadCallback(graficoCadastros2);
+        google.setOnLoadCallback(graficoVisitas);
+
+        function graficoCadastros() {
+
+            $.ajax({
+                url: "/Admin/GraficoCadastrados", type: "POST", dataType: "json",
+                success: function (json) {
+
+                    // Create the data table.
+                    var data = new google.visualization.DataTable();
+                    data.addColumn('string', 'Descricao');
+                    data.addColumn('number', 'Valor');
+
+                    var obj = eval("(" + json + ")");
+
+                    for (var i = 0; i < obj.length; i++) {
+                        data.addRows([[obj[i].Descricao, obj[i].Valor]]);
+                    }
+
+                    // Set chart options
+                    var options = {
+                        'title': 'Total de Cadastros',
+                        'width': 450,
+                        'height': 350,
+                        pieHole: 0.4,
+                        legend: 'none'
+                    };
+
+                    // Instantiate and draw our chart, passing in some options.
+                    var chart = new google.visualization.PieChart(document.getElementById('chart_Cadastrados'));
+                    chart.draw(data, options);
+
+                }
+            });
+
+        }
+
+        function graficoCadastros2() {
+
+            $.ajax({
+                url: "/Admin/GraficoCadastrados", type: "POST", dataType: "json",
+                success: function (json) {
+
+                    // Create the data table.
+                    var data = new google.visualization.DataTable();
+                    data.addColumn('string', 'Descricao');
+                    data.addColumn('number', 'Valor');
+
+                    var obj = eval("(" + json + ")");
+
+                    for (var i = 0; i < obj.length; i++) {
+                        data.addRows([[obj[i].Descricao, obj[i].Valor]]);
+                    }
+
+                    // Set chart options
+                    var options = {
+                        'title': 'Total de Cadastros',
+                        'width': 450,
+                        'height': 350,
+                        legend: 'none'
+                    };
+
+                    // Instantiate and draw our chart, passing in some options.
+                    var chart = new google.visualization.ColumnChart(document.getElementById('chart_Cadastrados2'));
+                    chart.draw(data, options);
+
+                }
+            });
+
+        }
+
+        function graficoVisitas() {
+
+            $.ajax({
+                url: "/Admin/GraficoVisitas", type: "POST", dataType: "json",
+                success: function (json) {
+
+                    // Create the data table.
+                    var data = new google.visualization.DataTable();
+                    data.addColumn('date', 'descricao');
+                    data.addColumn('number', 'visitas');
+                    data.addColumn('number', 'visitantes');
+
+                    var obj = eval("(" + json + ")");
+
+                    for (var i = 0; i < obj.length; i++) {
+                        data.addRows([[new Date(obj[i].descricao.split("/")[2], obj[i].descricao.split("/")[1] -1, obj[i].descricao.split("/")[0]), obj[i].visitas, obj[i].visitantes]]);
+                    }
+
+                    // Set chart options
+                    var options = {
+                        'title': 'Total de Visitas x Visitantes',
+                        width: 1140,
+                      height: 350,
+                      hAxis: {
+                        format: 'd/M/yy',
+                        gridlines: {count: 15}
+                      },
+                    };
+
+                    // Instantiate and draw our chart, passing in some options.
+                    var chart = new google.visualization.LineChart(document.getElementById('chart_Visitas'));
+                    chart.draw(data, options);
+
+                }
+            });
+
+        }
+    </script>
+}

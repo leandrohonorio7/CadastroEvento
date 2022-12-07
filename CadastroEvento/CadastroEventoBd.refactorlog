@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="4ed3385d-1155-4ef7-96bb-70c84fba9be2" ChangeDateTime="03/06/2016 13:00:43">
+    <Property Name="ElementName" Value="[dbo].[Foto].[Nome]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Foto]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdPessoa" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="246e0809-7fcb-4f4a-a2e7-7a7ac1ae46aa" ChangeDateTime="03/06/2016 13:01:24">
+    <Property Name="ElementName" Value="[dbo].[Foto].[size]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Foto]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Tamanho" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2126b3bd-926d-4971-8ad2-5fca13ebc97b" ChangeDateTime="03/06/2016 13:21:04">
+    <Property Name="ElementName" Value="[dbo].[FK_Foto_ToTable]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Foto]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Foto_Pessoa]" />
+  </Operation>
+</Operations>

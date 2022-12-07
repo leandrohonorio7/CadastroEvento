@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Site", "Site\Site.csproj", "{BC311162-37BD-4997-86AB-AFD543121551}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CadastroEventoBd", "CadastroEvento\CadastroEventoBd.sqlproj", "{E9DD80A1-5B16-4A9D-BDA9-F7DF1916A8E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{EF039D56-9B1B-42DC-8735-13A4430032BF}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC311162-37BD-4997-86AB-AFD543121551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC311162-37BD-4997-86AB-AFD543121551}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC311162-37BD-4997-86AB-AFD543121551}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC311162-37BD-4997-86AB-AFD543121551}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9DD80A1-5B16-4A9D-BDA9-F7DF1916A8E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9DD80A1-5B16-4A9D-BDA9-F7DF1916A8E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9DD80A1-5B16-4A9D-BDA9-F7DF1916A8E7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E9DD80A1-5B16-4A9D-BDA9-F7DF1916A8E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9DD80A1-5B16-4A9D-BDA9-F7DF1916A8E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9DD80A1-5B16-4A9D-BDA9-F7DF1916A8E7}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

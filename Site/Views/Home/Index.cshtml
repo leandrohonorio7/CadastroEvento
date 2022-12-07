@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Cadastramento</h1>
+    <p class="lead">Realize o cadastro para acesso ao sistema.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Visitantes</h2>
+        <p>
+            Veja o cadastro de todos os <b>visitantes</b> do evento
+        </p>
+        <p>@Html.ActionLink("Visitantes", "Index", "Visitante", null, new { Class = @"btn btn-primary" })</p>
+    </div>
+    <div class="col-md-6">
+        <h2>Expositores</h2>
+        <p>
+            Veja o cadastro de todos os <b>expositores</b> do evento.
+        </p>
+        <p>@Html.ActionLink("Expositores", "Index", "Expositor", null, new { Class = @"btn btn-success" })</p>
+    </div>
+</div>

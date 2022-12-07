@@ -1,0 +1,14 @@
+﻿@model Site.Models.Pessoa
+<div id="divDados" class="row">
+    <div class="col-md-3">
+        <img src="~/Imagens/sem-imagem-homem.jpg" class="img-thumbnail" />
+    </div>
+    <div class="col-md-9">
+        <h3>@Model.Nome - @Model.Cargo</h3>
+        <h4>@Model.Empresa - <span class="cnpj">@Model.CNPJ</span></h4>
+        <p><strong>CPF:</strong> <span class="cpf">@Model.CPF</span></p>
+        <p><strong>Telefone:</strong> @Model.Telefone | <strong>Celular:</strong> @Model.Celular</p>
+        <p><strong>Endereço:</strong> @Model.Endereco, @Model.Numero - @Model.Bairro, @Model.Cidade - @Model.Estado</p>
+        <p><strong>CEP:</strong> @Model.CEP</p>
+    </div>
+</div>

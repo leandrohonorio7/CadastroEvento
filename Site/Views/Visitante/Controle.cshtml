@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Controle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Controle de Acesso</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <h4>Dados do Visitante</h4>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="CPF">CPF</label>
+            <div class="col-md-3">
+                <input class="form-control text-box single-line" id="CPF" name="CPF" type="text" value="">
+            </div>
+        </div>
+    </div>
+
+    if (Request.HttpMethod == "POST")
+    {
+
+        if (ViewBag.Pessoa != null)
+        {
+            var pessoa = ViewData["Pessoa"] as Site.Models.Pessoa;
+
+            @Html.Partial("_Visitante", pessoa)
+        }
+        else
+        {
+            var Mensagem = new Site.Models.Mensagem { Titulo = "Atenção!", Texto = "Visitante não Encontrado.", Classe = "alert-warning" };
+            @Html.Partial("_Alerta", Mensagem)
+        }
+    }
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#CPF').mask('000.000.000-00');
+
+            $('#CPF').focus();
+
+            //$('#cpf').change(function () {
+
+            //    alert($(this).val());
+            //});
+        });
+
+
+    </script>
+}
+
